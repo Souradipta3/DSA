@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main()
+{
+    int n;
+    printf("Enter the number of elements you want in array: ");
+    scanf("%d", &n);
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter the %dth element:", i+1);
+        scanf("%d", &arr[i]);
+    }
+    int max = INT_MIN, sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum = 0;
+        for (int j = i; j < n; j++)
+        {
+            sum += arr[j];
+            if (sum > max)
+            {
+                max = sum;
+            }
+        }
+    }
+    printf("Max sum subarray is %d", max);
+    return 0;
+}
