@@ -1,0 +1,67 @@
+Hashing
+
+Defination:- 
+Hashing is a process in computer science and data structures where data, often of arbitrary size, is transformed through a hash function to produce a fixed-size string of characters, typically a hash code. The hash code is then used to index and quickly locate data in data structures like hash tables. Hashing is employed to achieve efficient data retrieval, storage, and integrity verification in various applications. The process involves selecting or designing a hash function that converts input data into a hash code, and dealing with collisions that may occur when different inputs produce the same hash code. The goal of hashing is to provide a fast and reliable method for organizing and accessing data. 
+
+Hash Function=> h[K(subscrept i)]=[K(subscrept i)] % m
+where, K=key and m=size of hash table
+
+Collision: Collisions occur when two different keys hash to the same index in the hash table. Handling collisions is an important aspect of hashing.
+
+Objective: To reduce the collision of the two different hash keys to the same index in the hash table.
+(Collision cannot be removed, it can only be reduced)
+
+Note:- The keys are first converted to hash code according to the given hash function and then it stored to the respective location in the hash table.
+-----------------------------------------------------------------------------------------------------------------------------
+
+Types of Hashing:-
+Open Hashing (Closed Addressing)
+
+-> Techniques for reducing collision: Chaining method
+ 
+Closed Hashing (Open Addressing)
+
+-> Techniques for reducing the collision:
+   --> Linear Probing 
+   --> Quadratic Probing
+   --> Double hashing Technique
+Note:- Probing is the synonym of searching. According to this context it will search for the free space to store.
+-----------------------------------------------------------------------------------------------------------------------------
+
+Chaining method:-
+During collision, in this method a linked list is formed in case of the element to get stored in the location which is already filled. This process is repeated whenever the collision occurs for which a chain of linked list is formed. It is used in case of closed addressing. So it is named as chaining method.
+
+Linear probing:-
+This is the default technique in case of open addressing hashing. In this method during collision the key is moved linearly to the next position in the hash table on the basis of the formula 
+[(u + i) %(modulus) m]. This process occurs repeatedly unless and until there is no free index in the hash table. As soon as the free index will be searched of the next filled index the key will get moved to that position. The probe is also counted for each key's linear movement.
+
+Quadratic probing:-
+This is open addressing hashing technique in which the keys are moved on the basis of a formula
+[{u + i(to the power 2)} %(modulus) m]. Here u is the location alloted before in the hash table on the basis of the hash function and i is the index which ranges from 0 to (m-1). This process occurs repeatedly unless and until the key does not get any free index in the hash table. 
+
+Double hashing:-
+In case of this technique hashing is done for twice. Two hash function will the given for some keys and if collision occurs after applying 1st hash function to convert the key into hash codes then the other hash fucntion is used on that key. After applying the 2nd hash function, the location of the key according to the hash code is determined by the formula [(u + v * i) % m] where, u is the location, i is the index number which ranges from 0 to (m-1), m is the size of the hash table and v is being calculated by [h2(k)%m]. The process get repeated by increasing the index value one by one.
+For example: 
+h1(k) = 1st hash function
+h2(k) = 2nd hash function
+u = location based on the 1st hash function
+v = location based on the 2nd hash function 
+by the formula, v = [{h2(k)}%10]
+for collision final location will be determined by the formula
+(u + v * i) % m
+---------------------------------------------------------------------------------------------------                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
